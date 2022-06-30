@@ -64,7 +64,7 @@ ini_set('display_errors', 'On');
   //If activeLocation, refresh statistics, else display multiple community statistics
   // and hide #activeStatDiv and #nearestStatDiv
   if(tabName=="statistics"){
-	  //Hide locationDivs
+	  //Hide the text for Active Location
 	  var locationDivs = document.getElementsByClassName("locationDivLink");
 		for (i = 0; i < locationDivs.length; i++) {
 			locationDivs[i].style.display = "none";
@@ -75,16 +75,16 @@ ini_set('display_errors', 'On');
 		loadDBLocations();
 		
 		
-		alert("Active Location");
+		console.log("Generating statistics for Active Location...");
 		//Show statistics for active Location
 		/*var activeTemp= document.getElementById("activeStatDiv1");
 		activeTemp.style.display = "block";
 		var nearestTemp= document.getElementById("nearestStatDiv1");
 		nearestTemp.style.display = "block";*/
 		var homeListTemp= document.getElementById("homeList");
-		nearestTemp.style.display = "none";
+		//nearestTemp.style.display = "none";
 		var removeLocTemp= document.getElementById("removeLocButton");
-		nearestTemp.style.display = "none";
+		//nearestTemp.style.display = "none";
 		statListFunction(1);		
 		
 		
