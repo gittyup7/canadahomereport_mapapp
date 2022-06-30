@@ -1,0 +1,86 @@
+/* Style the form */
+#filterForm {
+  float: left;
+  background-color: #ffffff;
+  padding: 40px;
+  overflow-y: scroll;
+  height:90%;
+  width: -webkit-fill-available;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+input.filterInput {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+.filterRow select{
+	display: inline-block;
+	/*margin-top: -9px;*/
+	margin-left: 7px;
+	margin-right: 7px;
+}
+.endFilterSelect{
+	float: right;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.invalid {
+  background-color: lightcoral;
+}
+.filterTitle{	
+    display: inline;
+	padding-left: 0.5em;
+}
+
+.description{	
+    max-width: 50%;
+	font-size:1.1em;
+}
+
+/* Hide all steps by default: */
+.filterTab {
+  display: none;
+}
+.filterRow p{
+	float:left;
+	display: inline-block;
+}/*
+.filterRow label{
+	float:right;
+}
+.filterRow select{
+	float:right;
+}*/
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+/* Mark the active step: */
+.step.active {
+  background-color: red;
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: red;  
+  opacity: 0.6;
+}
+
+.filterCheckbox{
+	height: 28px;
+    width: 28px;
+}

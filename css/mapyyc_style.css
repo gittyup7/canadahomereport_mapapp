@@ -1,0 +1,1599 @@
+body { 
+	margin:0; 
+	padding:0; 
+	overflow-y: hidden;
+}
+h1 {
+	display: inline-block;
+	padding-left:0.8em;
+    font-size: 2em;
+	color:white;
+}
+h2 {
+	padding-left:0.8em;
+}
+h2.clear{
+	clear: both;
+}
+#locationLinks h5{
+	padding-left:0.8em;
+	font-size: 1.1em;
+	    position: relative;
+    float: left;
+    margin-top: 0px;
+}
+#homeList{
+	padding: 6px;
+    margin-top: 0.8em;
+    font-size: 17px;
+    border: none;
+	margin-left: 0.2em;
+}
+
+#map { 
+	position: absolute; 
+	top: 5em; 
+	bottom:5em; 
+	right:0; 
+	left:0; 	
+    z-index: 1;
+}
+#chart { 
+	display: none;
+	position: absolute; 
+	top: 5.25em; 
+	bottom:2em; 
+	right:0; 
+	left:0; 	
+	background: #eee; 
+	overflow: auto;
+    z-index: 2;
+}
+.tabContent{
+  display: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+.left{
+	float:left;
+	width:100%;
+	padding-left:15px;
+}
+.right{
+	float:right;
+	width:100%;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+button.footerButton.tabLinks{
+	float:right;
+}
+button.tabLinks.active {
+  color: #a6a6a6;
+}
+
+#header { 
+	height:3.7em;
+	background-color:red;
+	font-family: 'Merriweather', serif;
+}
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 3.5em;    /* Footer height */
+}
+#footer { 
+	position: absolute;
+    text-align: center;
+	bottom: 0;
+	width: 100%;
+	/*height:3.5em;*/
+	background-color:black;
+	font-family: 'Merriweather', serif;
+    font-size: 0.7em;
+	color:white;
+}
+button.footerButton{
+	float:left;
+	padding: 0.3em 0.2em;
+	color:white;
+	background-color:black;
+}
+.footerSpan{
+	float:left;
+	padding: 0.3em 0.5em;
+	font-family: 'Merriweather', serif;
+    font-size: 1.4em;
+	color:white;
+	background-color:black;
+}
+
+input[type="text"], select{
+	float:left;
+	padding: 0.4em 0.2em;
+	margin-top: 6px;
+	font-size: 1.1em;
+}
+
+input[type="button"]{
+	float:left;
+	padding: 0.4em 0.4em;
+	margin-top: 6px;
+	font-size: 1.4em;
+}
+
+
+/*Search bar*/
+.header .search-container {
+  float: left;
+  margin-left:10px;
+}
+#search{
+	float:left;
+}
+
+.leaflet-control-mapcentercoord {
+	display:none;
+}
+
+.header input[type=text] {
+  padding: 6px;
+  margin-top: 0.8em;
+  margin-right: 0.2em;
+  font-size: 17px;
+  border: none;
+}
+
+.header .search-container button {
+  margin-top: 0.8em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.header .search-container button:hover {
+  background: #ccc;
+}
+
+.statButton{
+  margin-top: 0.6em;
+  margin-left: 1.0em;
+  margin-right: 0.2em;
+  background: #ddd;
+  font-size: 22px;
+  border: 1px solid black;
+  cursor: pointer;
+  
+}
+.fa-plus-square{
+	padding-right:5px;
+}
+#removeLocButton {
+margin-top: 0.8em;
+  margin-left: 0.4em;
+  margin-right: 0.0em;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  float:right;
+}
+
+#removeLocButton:hover {
+  background: #ccc;
+}
+#addLocButton{
+	margin-left: 0.0em;
+}
+.headerButton{
+	padding: 0.3em 0.2em;
+	font-size:16px;
+}
+input:invalid {
+  border: 1px dashed red;
+}
+
+input:valid {
+  border: 1px solid black;
+}
+
+
+.magButton{
+	padding: 0.5em 0.5em;
+}
+.magSearch, .plusSave
+{
+ font-size: 1.5em; /* This controls the size. */
+ display: inline-block;
+ width: 0.4em;
+ height: 0.4em;
+ border: 0.1em solid #B10B14;
+ position: relative;
+ border-radius: 0.35em;
+}
+.magSearch::before
+{
+ content: "";
+ display: inline-block;
+ position: absolute;
+ right: -0.25em;
+ bottom: -0.1em;
+ border-width: 0;
+ background: #B10B14;
+ width: 0.35em;
+ height: 0.08em;
+ -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+}
+/*For saved location numbers*/
+h3.location{
+	position:relative;
+	float:right;
+	padding-left:0.1em;
+	font-size: 1.2em;
+	margin-top:0.3em;
+}
+div.locationDiv{
+	float:right;
+	width:200px;
+	height:1.5em;
+}
+span.grey {
+  font-size: 1.5em;
+  background: #cccccc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  margin-right: 12px;
+  text-align: center;
+  width: 1em; 
+}
+span.white {
+  font-size: 1.5em;
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #000;
+  display: block;
+  font-weight: bold;
+  line-height: 1;
+  margin-right: 12px;
+  text-align: center;
+  width: 1em;
+  cursor: pointer;
+}
+span.black {
+  font-size: 1.5em;
+  background: #000;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  line-height: 1;
+  margin-right: 12px;
+  text-align: center;
+  width: 1em; 
+}
+
+.fas{
+	padding: 0.2em 0.4em;
+}
+.far{
+	padding: 0.2em 0.4em;
+}
+.fa{
+	float:left;
+	padding-left: 0.2em;
+	font-size:2.2em;
+}
+.fa-window-close{
+	float:right;
+	padding-left: 4px;
+	font-size:1.3em;
+}
+.fa-angle-double-right{
+	color:#000;
+}
+
+/*For Location Links*/
+#locationLinks{	
+	position:relative;
+	float:left;
+	margin-top: 5px;
+	padding-top:10px;
+}
+.locationDivLink{
+   position:absolute;
+   z-index:10;
+   background: #fff;
+   /*border-radius: 99px;*/
+   border-style: solid;
+   border-width: 1px;
+   border-color: #000;
+   display: inline-block;
+   height: 36px;
+   padding: 8px 8px;
+   font-size:17px;
+   
+   box-sizing: border-box;
+   color: #000;
+   top:5px;
+}
+.locationALink{
+	margin-top:-2px;
+}
+#homeDiv{
+	min-width:208px;
+	float:right;
+}
+/*Menu Animation*/
+.menuIcon {
+	float:right;
+    display: inline-block;
+    cursor: pointer;	
+	padding:0.65em 0.8em 0.1em;
+}
+
+.bar1, .bar2 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+
+.sidenav {
+    height: 79%;
+    width: 0;
+    position: absolute;/*fixed;*/
+	/*float:left;*/
+    z-index: 11;
+    left: 0;
+	/*top:4.3em;*/
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    /*padding-top: 2em;*/
+	padding-left: 0.4em;
+	padding-right: 0em;
+	display:none;
+}
+
+.sidenav a {
+    padding: 10px 8px 10px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #f4f4f4;
+    display: block;
+    /*transition-duration: 0.3s;
+	-webkit-transition-delay: 1s;*/
+	/*transition-delay:1s;*/
+}
+
+.sidenav a:hover {
+	padding: 9px 7px 9px 29px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #f4f4f4;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 35px;
+    margin-left: 50px;
+}
+.sidenavChild {
+    height: 100%;
+    width: 0;
+    position: absolute;/*fixed;*/
+	/*float:left;*/
+    z-index: 11;
+    left: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    transition: 0.5s;
+    /*padding-top: 2em;*/
+	padding-left: 0.4em;
+	padding-right: 0em;
+}
+
+.sidenavChild a {
+    padding: 10px 8px 10px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #111;
+    display: none;
+    /*transition-duration: 0.3s;
+	-webkit-transition-delay: 1s;*/
+	/*transition-delay:1s;*/
+}
+
+.sidenavChild a:hover {
+	padding: 9px 7px 9px 29px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #111;
+}
+
+.sidestats {
+    height: auto;
+    width: 0;
+    position: absolute;/*fixed;*/
+	/*float:left;*/
+    z-index: 11;
+    left: 0;
+	/*top:4.3em;*/
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    /*padding-top: 2em;*/
+	padding-left: 0.4em;
+	padding-right: 0em;
+	display:none;
+	bottom: 120px;
+}
+.sideStatsTitle{
+	color:white;
+	margin: 0.7em;
+}
+.tabulator{	
+	font-size: 12px!important;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*Checkbox*/
+.dropdown {
+  position: relative;
+  display: inline-block;  
+  width: 95%;
+  margin-top:10px;
+}
+.dropdown-content {
+  display: none;
+  /*position: absolute;*/
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*z-index: 1;*/
+  overflow:auto;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+	background-color: #cecece;
+	color: black;
+	border-style: none;
+}
+
+/* Show the dropdown menu on hover */
+/*.dropdown:hover .dropdown-content {display: block;}*/
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/*State for selected layer links*/
+.active.parent-layer {
+	color:#fff;
+  background-color: #6f6d6d;
+}
+
+a:active, a.active {
+	color:#000;
+  background-color: #ff4040;
+}
+
+
+.sidenav label{
+   padding: 8px 8px 8px 32px;
+   text-decoration: none;
+   font-size: 25px;
+   color: #222222;
+   display: block;
+   /*transition: 0.3s;*/
+}
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  padding: 8px 8px 5px 24px;
+	font-family: 'Merriweather', serif;
+  width: 100%;
+  text-decoration: none;
+   font-size: 20px;
+   color: #818181;
+   display: block;
+   /*transition: 0.3s;*/   
+  background-color: #111;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;  
+}
+
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+/*Statistics CSS*/
+
+#statistics{
+	position: relative;
+    width: 100%;
+    
+}
+#leftStats{
+	position: relative;
+	float:left;
+	width: 25%;
+	height:100%;
+}
+#middleStats{
+	position: relative;
+	float:right;
+	width: 49%;
+	height:100%;
+}
+#rightStats{
+	position: relative;
+	float:right;
+	width: 25%;
+	height:100%;
+}
+
+
+#x {
+    position: absolute;
+    background: red;
+    color: white;
+    top: -10px;
+    right: -10px;
+}
+
+.locationStat{
+	width:49%;
+	float:left;
+	margin-left:5px;
+	
+	overflow-y:scroll;
+	max-height: 60%;
+}
+.removeActiveLayerButton{
+  float: right;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/*Custom Icon CSS*/
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #c30b82;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+}
+// to draw white circle
+/*.marker-pin::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    margin: 3px 0 0 3px;
+    background: #fff;
+    position: absolute;
+    border-radius: 50%;
+ }*/
+
+// to align icon
+.custom-div-icon i {
+   position: absolute;
+   width: 22px;
+   font-size: 22px;
+   left: 0;
+   right: 0;
+   margin: 10px auto;
+   text-align: center;
+}
+
+.custom-div-icon i.awesome {
+    font-size: 22px;
+ }
+ .custom-div-icon i.awesome.fa-sleigh {
+    font-size: 18px;
+ }
+ .police-pin {
+	 background-color:#4838cc;
+	color:white;
+ }
+ .divIcon.fa-shield-alt{
+    margin: 2px 0px 0px -7px;	 
+ }
+ .fire-pin {
+	 background-color:#000;
+	 color:orange;
+ }
+ .divIcon.fa-exclamation-circle{
+	 margin: 0px 0px 0px -5px;
+ }
+ .prison-pin {
+	 background-color:#000;
+	 color:white;
+ }
+ .divIcon.fa-gripfire{
+	 margin: 6px 0px 0px 5px;
+ }
+ .hospital-pin {
+	 background-color:#fff;
+	 color:red;
+ }
+ .divIcon.fa-hospital-symbol{
+	 margin: 0px 0px 0px -5px;
+ }
+ .health_center-pin {
+	 background-color:#fff;	 
+	 color:red;
+ }
+ .divIcon.fa-clinic-medical{
+	 margin: -1px 0px 0px -5px;
+ }
+ /*.elem_schools-pin {
+	 background-color:green;
+	 
+ }*/
+ .divIcon.fa-school.elem{
+	 margin: 25px 0px 0px 0px;
+	 color:#f7a092;
+	 background-color: #000;
+	 transform: rotate(0deg);	 
+ }
+ 
+ /*.jr_schools-pin {
+	 background-color:yellow;
+	 color:black;
+	 
+ }*/
+ .divIcon.fa-school.jrhigh{
+	 margin: 25px 0px 0px 0px;
+	 color:yellow;
+	 background-color: #000;
+	 transform: rotate(0deg);	
+	 
+ }
+ /*.high_schools-pin {
+	 background-color:orange;
+	 color:white;
+ }*/
+ .divIcon.fa-school.high{
+	 margin: 25px 0px 0px 0px;
+	 color:orange;
+	 background-color: #000;
+	 transform: rotate(0deg);	
+	 
+ }
+ .post_sec_schools-pin {
+	 background-color:4838cc;
+ }
+  .divIcon.fa-graduation-cap{
+	 margin: 2px 0px 0px -8px;	 
+	 color:white;
+	 font-size:21px !important;
+	 
+ }
+ .bus_stop-pin {
+	 background-color:burlywood;
+ }
+  .divIcon.fa-bus{
+	 margin: 3px 0px 0px -7px;	 
+	 color:black;
+	 
+ }
+ .lrt_stop-pin {
+	 background-color:#cc2212;
+ }
+ .divIcon.fa-subway{
+	 margin: 1px 0px 0px -4px;	 
+	 color:#fff;
+	 
+ }
+.entertain-pin {
+	 background-color:#8B008B;
+ }
+.divIcon.fa-glass-cheers{
+	 margin: 2px 0px 0px -8px;	 
+	 color:#fff;
+	 
+ }
+ .library-pin {
+	 background-color:#8B0000;
+ }
+ .divIcon.fa-book-reader{
+	 margin: 0px 0px 0px -4px;	 
+	 color:#fff;
+	 /*font-size:20px;*/
+     background-color: darkslategray;
+	 
+ }
+ .divIcon.fa-users{
+	 margin: 25px 0px 0px -12px;	 
+	 color:#21ded8;
+     transform: rotate(0deg);
+	 
+ }
+ .divIcon.fa-child{
+	 margin: 6px 0px 0px -3px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ .play_structure-pin {
+	 background-color:#d4ae24;
+ }
+ .divIcon.fa-swimmer{
+	 margin: 0px 0px 0px -8px;	 
+	 color:#fff;
+     transform: rotate(45deg);
+	 
+ }
+ .swimmer-pin {
+	 background-color:#b124d4;
+ }
+.divIcon.fa-home{
+	 margin: 6px 0px 0px -7px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ .home-pin {
+	 background-color:#91603b;
+ }
+ .divIcon.fa-landmark{
+	 margin: -1px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(45deg);
+	 
+ }
+ .entertain-pin {
+	 background-color:#D9446A;
+ }
+.divIcon.fa-landmark{
+	 margin: -1px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(45deg);
+	 
+ }
+ .restaurant-pin {
+	 background-color:#339933;
+ }
+ .divIcon.fa-utensils{
+	 margin: 6px 0px 0px -4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ .gas_station-pin {
+	 background-color:#CC9900;
+ }
+ .divIcon.fa-gas-pump{
+	 margin: 6px 0px 0px -4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ .grocery-pin {
+	 background-color:#FF00FF;
+ }
+  .divIcon.fa-carrot{
+	 margin: -1px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(45deg);
+	 
+ }
+ 
+.malls-pin {
+	 background-color:#FF66FF;
+ }
+ .divIcon.fa-shopping-bag{
+	 margin: 5px 0px 0px -4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ /*Sports Icons*/
+ .baseball-pin {
+	 background-color:#0039e6;
+ }
+ .divIcon.fa-baseball-ball{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .basketball-pin {
+	 background-color:#e68a00;
+ }
+ .divIcon.fa-basketball-ball{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .volleyball-pin {
+	 background-color:#ff4d4d;
+ }
+ .divIcon.fa-volleyball-ball{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .hockey-pin {
+	 background-color:#f2f2f2;
+ }
+ .divIcon.fa-hockey-puck{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#000;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .skating-pin {
+	 background-color: #4040bf;
+ }
+ .divIcon.fa-skating{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .frisbee-pin {
+	 background-color:#aa80ff;
+ }
+ .divIcon.fa-compact-disc{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .sled-pin {
+	 background-color:#ff4dc4;
+ }
+ .divIcon.fa-sleigh{
+	 margin: 8px 0px 0px -4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 font-size: 18px;
+	 
+ }
+ 
+ .runner-pin {
+	 background-color:#800000;
+ }
+ .divIcon.fa-running{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .football-pin {
+	 background-color:#ff0000;
+ }
+ .divIcon.fa-football-ball{
+	 margin: 5px 0px 0px -4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .skateboard-pin {
+	 background-color:#000;
+ }
+ .divIcon.fa-ban{
+	 margin: 6px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .socFoot-pin {
+	 background-color:#FF66FF;
+ }
+ .divIcon.letters{
+	 margin: 8px 0px 0px -5px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 font-size:17px !important;
+	 
+ }
+ 
+ .soccer-pin {
+	 background-color:#ffff00;
+ }
+ .divIcon.fa-futbol{
+	 margin: 7px 0px 0px -6px;	 
+	 color:#00b300;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ .tennis-pin {
+	 background-color:#00b300;
+ }
+ .divIcon.fa-affiliatetheme{
+	 margin: 10px 0px 0px 4px;	 
+	 color:#fff;
+     transform: rotate(0deg);
+	 
+ }
+ 
+ 
+ .divIcon{
+	 /*top:0;*/	 
+     transform: rotate(45deg);
+ }
+ //Legend
+ .mapLegend {
+    line-height: 18px;
+    color: #555;
+}
+.mapLegend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+.awesome-legend {
+	font-size:1.5em;
+	margin-top:0px !important;
+}
+.untilt{
+	transform: rotate(0deg) !important;
+}
+.homeBrown{
+	color: #91603b !important;
+}
+.black{
+	color:black !important;
+}
+.white{
+	color:white !important;
+}
+.orange{
+	color:orange !important;
+}
+.basketBrown{
+	color: #e68a00 !important;
+}
+.sledPink{
+	color: #ff4dc4 !important;
+}
+.tennisGreen{
+	color: #00b300 !important;
+}
+.socFootColor{
+	color:#FF66FF !important;
+	font-size:15px !important;
+}
+.red{
+	color:red !important;
+}
+.swimPurple{
+	color:#b124d4 !important;
+}
+.postSecColor{
+	color:#4838cc !important;
+}
+.lrtColor{
+	color:#cc2212 !important;
+}
+.libraryColor {
+	color:#8B0000 !important;
+}
+.baseColor{
+	color:#0039e6 !important;
+}
+.frisbeeColor{
+	color:#aa80ff !important;
+}
+.skatingColor{
+	color: #4040bf !important;
+}
+.runningColor{
+	color:#800000 !important;
+}
+.volleyballColor{
+	color:#ff4d4d !important;
+}
+.playStructureColor{
+	color:#d4ae24 !important;
+}
+.attractionColor{
+	color:#D9446A !important;
+}
+.shoppingColor{
+	color:#FF66FF !important;
+}
+.restaurantColor{
+	color:#339933 !important;
+}
+.gasStationColor{
+	color:#CC9900 !important;
+}
+.policeBlue{
+	color:#4838cc !important;
+}
+.legend-row label{	
+	font-size:15px;
+}
+#htmlLegendCemetery{
+	display: inline-block;
+	background-color: #bf941d;
+	border: 2px solid #bf941d;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendLandfills{
+	display: inline-block;
+	background-color: #00d400;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendLandfills{
+	display: inline-block;
+	background-color: #00d400;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendSewage{
+	display: inline-block;
+	background-color: #d3ff4c;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendFlood{
+	display: inline-block;
+	background-color: #21f4ff;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendRailways{
+	display: inline-block;
+	background-color: #fff200;
+	border: 1px solid #777;
+    width: 20px;
+    height: 3px;
+}
+#htmlLegendMajRoads{
+	display: inline-block;
+	background-color: #ff9721;
+	border: 2px solid #ff9721;
+    width: 20px;
+    height: 1px;
+}
+#htmlLegendRecTrails{
+	display: inline-block;
+	background-color: #1e29fa;
+	border: 2px solid #1e29fa;
+    width: 20px;
+    height: 1px;
+}
+#htmlLegendUtilities{
+	display: inline-block;
+	background-color: #f56342;
+	border: 2px solid #f56342;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendProvPark{
+	display: inline-block;
+	background-color: #7aff70;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendPark{
+	display: inline-block;
+	background-color: #7aff70;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendDogPark{
+	display: inline-block;
+	background-color: #52eb47;
+	border: 2px solid brown;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendZoningResidential{
+	display: inline-block;
+	background-color: #ffffb3;
+	border: 2px solid white;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendZoningIndustrial{
+	display: inline-block;
+	background-color: #fb8072;
+	border: 2px solid white;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendZoningResidual{
+	display: inline-block;
+	background-color: #80b1d3;
+	border: 2px solid white;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendZoningPark{
+	display: inline-block;
+	background-color: #8dd3c7;
+	border: 2px solid white;
+    width: 20px;
+    height: 15px;
+}
+
+#crime1{
+	display: inline-block;
+	background-color: #abff57;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#crime2{
+	display: inline-block;
+	background-color: #FDE92C;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#crime3{
+	display: inline-block;
+	background-color: #FDBA23;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#crime4{
+	display: inline-block;
+	background-color: #FD8B1A;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#crime5{
+	display: inline-block;
+	background-color: #FE2E08;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#avg1{
+	display: inline-block;
+	background-color: #ffd4f5;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#avg2{
+	display: inline-block;
+	background-color: #ebaee0;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#avg3{
+	display: inline-block;
+	background-color: #d67ac9;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#avg4{
+	display: inline-block;
+	background-color: #c24ab3;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#avg5{
+	display: inline-block;
+	background-color: #99038b;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#demo1{
+	display: inline-block;
+	background-color: #FFD4D7;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#demo2{
+	display: inline-block;
+	background-color: #FFA9AC;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#demo3{
+	display: inline-block;
+	background-color: #FF7F81;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#demo4{
+	display: inline-block;
+	background-color: #fa6466;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#demo5{
+	display: inline-block;
+	background-color: #FF0000;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#income1{
+	display: inline-block;
+	background-color: #ffd4f5;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#income2{
+	display: inline-block;
+	background-color: #ebaee0;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#income3{
+	display: inline-block;
+	background-color: #d67ac9;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#income4{
+	display: inline-block;
+	background-color: #c24ab3;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+#income5{
+	display: inline-block;
+	background-color: #99038b;
+	border: 1px solid #fff;
+    width: 10px;
+    height: 15px;
+}
+
+#htmlLegendProvPark{
+	display: inline-block;
+	background-color: #7aff70;
+	border: 2px solid #000;
+    width: 20px;
+    height: 15px;
+}
+#htmlLegendFilterMatch{
+	display: inline-block;
+	background-color: #e9d840;
+	border: 2px solid #ffe702;
+	width: 20px;
+	height: 15px;
+}
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+#statHeader{
+	float:left;
+	clear:both;
+	text-align:left;
+	width:100%;
+}
+#newLocButton{
+	position:relative;
+	float:left;
+	}
+.statTableDiv {
+	max-width:100%;
+	clear:both;
+}
+.nearestStatDivTable{
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(118, 118, 118);
+}
+.statList{
+	margin-left: 15px;
+}
+.activeStatDivTable{
+	/*margin-left: 15px;*/
+}
+/*Filter*/
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 12; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#filterDiv {
+	position: relative;
+	margin-right: auto;	
+	margin-left: auto;
+    margin-top: 75px;
+    width: 75%;
+    height: 70%;
+	background-color: rgba(100,165,247,1);
+	text-align: left;
+	z-index: 13;
+	font-weight:700;
+	color:black;
+}
+#filterDiv h1{
+	z-index: 13;
+	color:black;
+	
+	padding: 10px;
+}
+#filterDiv div{
+	clear:both;
+	padding: 10px;
+}
+#filterTitle{
+	background-color:red;
+	width:100%;
+	font-family: 'Merriweather', serif;
+}
+.close-button, .apply-button{
+	float: right;
+    margin: 5px;
+	padding: 8px 10px;
+    font-weight: 900;
+    font-size: large;
+    background-color: white;
+}
+.rangeLabel{
+	float:left;
+}
+.slider {
+	width: 25%;
+	float:left;
+}
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+/* Style the tab */
+.filterTab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the filterTab */
+.filterTab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.filterTab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current filterTablink class */
+.filterTab button.active {
+  background-color: #ccc;
+}
+
+/* Style the filterTab content */
+.filterTabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.filterTabcontent:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.filterColumn{
+  display: none;
+  float: left;
+  width: 50%;
+
+}
+.leaflet-html-legend::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.9);
+    -webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.9);
+}
+#statsLeft{	
+    height: 80%;
+	float: left;
+    width: 250px;
+}
+#commList1, #commList2, #statList1, #statList2{
+	display:none;
+}
+.statTab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.statTab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.statTab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.statTab button.active {
+  background-color: #ccc;
+}
+
+/* Style the statTab content */
+.statTabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
